@@ -11,6 +11,7 @@ import {
 
 import { setDoc, doc, serverTimestamp } from 'firebase/firestore'
 import { db } from "../firebase.config";
+import OAuth from "../components/OAuth";
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -55,7 +56,7 @@ const SignUp = () => {
 
       navigate("/");
     } catch (error) {
-      toast.error('Something went wrong with registration')
+      toast.error('Something went wrong with registration0')
     }
   };
 
@@ -111,6 +112,8 @@ const SignUp = () => {
               </button>
             </div>
           </form>
+
+          <OAuth />
 
           <Link to="/sign-in" className="registerLink">
             Sign In Instead
