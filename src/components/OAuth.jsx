@@ -5,12 +5,13 @@ import { db } from "../firebase.config";
 import { toast } from "react-toastify";
 import googleIcon from "../assets/svg/googleIcon.svg";
 
-const OAuth = () => {
+const OAuth = ({setLoading}) => {
   const navigate = useNavigate()
   const location = useLocation()
 
   const onGoogleClick = async () => {
     try {
+      setLoading(true)
       const auth = getAuth()
       const provider = new GoogleAuthProvider()
       const result = await signInWithPopup(auth, provider)
@@ -28,6 +29,7 @@ const OAuth = () => {
           timestamp: serverTimestamp()
         })
       }
+      setLoading(false)
       navigate('/')
     } catch (error) {
       toast.error('Could not authorize with Google')

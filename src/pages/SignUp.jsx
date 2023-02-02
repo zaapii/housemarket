@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { ReactComponent as ArrowRightIcon } from "../assets/svg/keyboardArrowRightIcon.svg";
 import visibilityIcon from "../assets/svg/visibilityIcon.svg";
 import { toast } from "react-toastify"
+import Spinner from '../components/Spinner'
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -15,6 +16,7 @@ import OAuth from "../components/OAuth";
 
 const SignUp = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false)
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -61,7 +63,7 @@ const SignUp = () => {
   };
 
   return (
-    <>
+    <>{loading ? <Spinner /> : (
       <div className="pageContainer">
         <header>
           <p className="pageHeader">Welcome Back!</p>
@@ -113,13 +115,14 @@ const SignUp = () => {
             </div>
           </form>
 
-          <OAuth />
+          <OAuth setLoading={setLoading} />
 
           <Link to="/sign-in" className="registerLink">
             Sign In Instead
           </Link>
         </main>
       </div>
+      )}
     </>
   );
 };

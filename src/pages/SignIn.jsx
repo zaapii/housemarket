@@ -5,9 +5,11 @@ import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import visibilityIcon from "../assets/svg/visibilityIcon.svg";
 import { toast } from "react-toastify"
 import OAuth from "../components/OAuth";
+import Spinner from '../components/Spinner'
 
 const SignIn = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false)
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -45,7 +47,7 @@ const SignIn = () => {
   };
 
   return (
-    <>
+    <>{loading ? <Spinner /> : (
       <div className="pageContainer">
         <header>
           <p className="pageHeader">Welcome Back!</p>
@@ -89,13 +91,14 @@ const SignIn = () => {
             </div>
           </form>
 
-          <OAuth />
+          <OAuth setLoading={setLoading} />
 
           <Link to="/sign-up" className="registerLink">
             Sign Up Instead
           </Link>
         </main>
       </div>
+    )}
     </>
   );
 };
