@@ -43,6 +43,10 @@ const Slider = () => {
     return <Spinner />
   }
 
+  if (!listings.length) {
+    return <></>
+  }
+
   return listings && (
     <>
       <p className="exploreHeading">
