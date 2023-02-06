@@ -19,6 +19,7 @@ import Spinner from "../components/Spinner";
 import { toast } from "react-toastify";
 
 const EditListing = () => {
+  // eslint-disable-next-line
   const [geolocationEnabled, setGeoLocationEnabled] = useState(true);
   const [loading, setLoading] = useState(false);
   const [listing, setListing] = useState(null);
@@ -84,6 +85,7 @@ const EditListing = () => {
     };
 
     fetchListing();
+    // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
@@ -102,6 +104,7 @@ const EditListing = () => {
     return () => {
       isMounted.current = false;
     };
+    // eslint-disable-next-line
   }, [isMounted]);
 
   const onSubmit = async (e) => {

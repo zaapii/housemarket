@@ -31,7 +31,6 @@ const Slider = () => {
           data: doc.data()
         })
       })
-      console.log(listings)
       setListings(listings)
       setLoading(false)
     }
@@ -75,12 +74,6 @@ const Slider = () => {
         ))}
       </Swiper>
     </>
-  )
-
-  return (
-    <div>
-
-    </div>
   )
 }
 

@@ -14,6 +14,7 @@ import Spinner from "../components/Spinner";
 import { toast } from "react-toastify";
 
 const CreateListing = () => {
+  // eslint-disable-next-line
   const [geolocationEnabled, setGeoLocationEnabled] = useState(true);
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
@@ -68,7 +69,8 @@ const CreateListing = () => {
     return () => {
       isMounted.current = false;
     };
-  }, [isMounted]);
+    // eslint-disable-next-line
+  }, [isMounted, auth, navigate]);
 
   const onSubmit = async (e) => {
     e.preventDefault();

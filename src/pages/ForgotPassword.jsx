@@ -30,7 +30,7 @@ const ForgotPassword = () => {
       </header>
       <main>
         <form onSubmit={onSubmit}>
-          <input onChange={onChange} type="email" className="emailInput" placeholder="email" id="email" value={email} onChange={onChange} />
+          <input onChange={onChange} type="email" className="emailInput" placeholder="email" id="email" value={email} />
           <Link className="forgotPasswordLink" to="/sign-in">Sign In</Link>
 
           <div className="signInBar">
